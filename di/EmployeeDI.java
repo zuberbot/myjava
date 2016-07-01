@@ -1,0 +1,36 @@
+/**
+ * 
+ */
+package com.java.di;
+
+/**
+ * @author Chuck
+ *
+ */
+public class EmployeeDI {
+
+	private Email email;
+	
+	public EmployeeDI(Email email) {
+		this.email = email;
+	}
+
+	public void sendEmail(String message) {
+		this.email.sendMessage(message);
+	}
+
+	/**
+	 * @return the email
+	 */
+	public Email getEmail() {
+		return email;
+	}
+
+	/**
+	 * @param email the email to set
+	 */
+	public void setEmail(Email email) {
+		this.email = email;
+	}
+
+}
