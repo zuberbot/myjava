@@ -1,3 +1,7 @@
+/**
+ * Control or alter how elements are sorted (beyond natural ordering).
+ * For example, reverse order.
+ */
 package comparator;
 
 import java.util.Comparator;
@@ -8,6 +12,7 @@ import java.util.Comparator;
  */
 public class MyComp implements Comparator<String> {
     
+    @Override
     public int compare(String a, String b) {
         String aStr, bStr;
         
@@ -19,4 +24,5 @@ public class MyComp implements Comparator<String> {
         return aStr.compareTo(bStr);
     }
     
+    // Don't need to override equals
 }
