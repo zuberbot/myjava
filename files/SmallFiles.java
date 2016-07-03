@@ -3,6 +3,7 @@
  */
 package com.planet.file;
 
+import java.io.File;
 import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
@@ -19,8 +20,12 @@ public class SmallFiles {
 	 */
 	public static void main(String... args) {
 		
+		String root = File.listRoots()[0].getAbsolutePath();
+		String path = root + File.separator + "temp" + File.separator;
+		
 		try {
-			Path file = Paths.get("c:\\temp\\smallfileR.txt");
+			path += "smallfileR.txt";
+			Path file = Paths.get(path);
 			byte[] fileArray = Files.readAllBytes(file);
 			String content = new String(fileArray, "UTF-8");
 			System.out.println(content);
@@ -29,7 +34,8 @@ public class SmallFiles {
 		}
 		
 		try {
-			Path file = Paths.get("c:\\temp\\smallfileW.txt");
+			path += "smallfileW.txt";
+			Path file = Paths.get(path);
 			String str = "This is my sample content 123.";
 			byte[] buf = str.getBytes();
 			Files.write(file, buf);
