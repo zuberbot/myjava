@@ -32,7 +32,7 @@ public class SmallFiles {
 			String content = new String(fileArray, "UTF-8");
 			System.out.println(content);
 
-			// Write from file
+			// Write to file
 			Path file2 = Paths.get(path2);
 			String str = "This is my sample content 123.";
 			byte[] buf = str.getBytes();
