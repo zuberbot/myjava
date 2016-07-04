@@ -1,5 +1,7 @@
 /**
  * FileReaderWriter
+ * 
+ * Character oriented.
  */
 package com.planet.file;
 
