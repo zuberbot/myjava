@@ -4,7 +4,9 @@
 package com.planet.serialize;
 
 import java.io.File;
+import java.io.FileInputStream;
 import java.io.IOException;
+import java.io.ObjectInputStream;
 
 /**
  * 
@@ -25,7 +27,11 @@ public class DeserializeTest {
 
 		try {
 			// Read object state back in
-			Employee empNew = (Employee) SerializationUtility.deserialize(fileName);
+			FileInputStream fis = new FileInputStream(fileName);
+			ObjectInputStream ois = new ObjectInputStream(fis);
+			Employee empNew = (Employee) ois.readObject();
+			ois.close();
+
 			System.out.println("emp New Obj->" + empNew);
 		} catch (ClassNotFoundException | IOException e) {
 			e.printStackTrace();
