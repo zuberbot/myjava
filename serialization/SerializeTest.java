@@ -4,7 +4,9 @@
 package com.planet.serialize;
 
 import java.io.File;
+import java.io.FileOutputStream;
 import java.io.IOException;
+import java.io.ObjectOutputStream;
 
 /**
  * 
@@ -31,7 +33,11 @@ public class SerializeTest {
 
 		try {
 			// Serialize to file
-			SerializationUtility.serialize(emp, fileName);
+			FileOutputStream fos = new FileOutputStream(fileName);
+			ObjectOutputStream oos = new ObjectOutputStream(fos);
+			oos.writeObject(emp);
+			fos.close();
+
 			System.out.println("emp Obj->" + emp);
 		} catch (IOException e) {
 			e.printStackTrace();
