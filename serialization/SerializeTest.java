@@ -1,0 +1,40 @@
+/**
+ * SerializeTest
+ */
+package com.planet.serialize;
+
+import java.io.File;
+import java.io.IOException;
+
+/**
+ * 
+ * @author chuck
+ * 
+ */
+public class SerializeTest {
+
+	/**
+	 * 
+	 * @param args
+	 */
+	public static void main(String... args) {
+		// Set storage
+		String root = File.listRoots()[0].getAbsolutePath();
+		String fileName = root + File.separator + "temp" + File.separator;
+		fileName += "employee.ser";
+		
+		// Give object state
+		Employee emp = new Employee();
+		emp.setId(101);
+		emp.setName("Chuck");
+		emp.setSalary(50000);
+
+		try {
+			// Serialize to file
+			SerializationUtility.serialize(emp, fileName);
+			System.out.println("emp Obj->" + emp);
+		} catch (IOException e) {
+			e.printStackTrace();
+		}
+	}
+}
