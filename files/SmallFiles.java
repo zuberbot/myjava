@@ -8,6 +8,7 @@ import java.io.IOException;
 import java.nio.file.Files;
 import java.nio.file.Path;
 import java.nio.file.Paths;
+import java.nio.file.StandardOpenOption;
 
 /**
  * @author chuck
@@ -32,11 +33,23 @@ public class SmallFiles {
 			String content = new String(fileArray, "UTF-8");
 			System.out.println(content);
 
-			// Write to file
+			// Write from file
 			Path file2 = Paths.get(path2);
-			String str = "This is my sample content 123.";
+			String str = "Append some more stuff!!!.";
 			byte[] buf = str.getBytes();
-			Files.write(file2, buf);
+			
+			boolean fileExists = Files.exists(file2);
+			if (fileExists) {
+				Files.write(file2, buf, StandardOpenOption.APPEND);
+			}
+			else {
+				Files.write(file2, buf);
+			}
+			// If writing to same file many times, the above has to open/close 
+			// file on disk each time, use a buffered writer instead
+
+			System.out.println("Done!");
+			
 		} catch (IOException ioe) {
 			ioe.printStackTrace();
 		}
