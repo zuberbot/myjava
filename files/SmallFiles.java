@@ -35,7 +35,7 @@ public class SmallFiles {
 
 			// Write from file
 			Path file2 = Paths.get(path2);
-			String str = "Append some more stuff!!!.";
+			String str = "Append some more stuff!!!";
 			byte[] buf = str.getBytes();
 			
 			boolean fileExists = Files.exists(file2);
